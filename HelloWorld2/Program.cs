@@ -10,16 +10,14 @@ class Program
         Console.WriteLine("Please enter the speed of the car");
         int carSpeed = int.Parse(Console.ReadLine());
 
+        int demerit = (carSpeed - speedLimit) / 5;
+
         if (carSpeed <= speedLimit)
             Console.WriteLine("OK");
+        else if (demerit > 12)
+            Console.WriteLine(demerit + "\n" + "License Suspended!!");
         else
-        {
-            int demerit = (carSpeed - speedLimit) / 5;
             Console.WriteLine(demerit);
-
-            if (demerit > 12)
-                Console.WriteLine("License Suspended!!");
-        }
 
 
     }
