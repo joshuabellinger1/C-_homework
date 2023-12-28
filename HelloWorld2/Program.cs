@@ -4,31 +4,23 @@ class Program
 {
     static void Main(string[] args)
     {
-        int width;
-        int height;
-        bool isValid;
+        Console.WriteLine("Please enter the posted Speed Limit");
+        int speedLimit = int.Parse(Console.ReadLine());
 
-        do {
-            Console.WriteLine("Please enter the width of the image.");
-            isValid = int.TryParse(Console.ReadLine(), out width);
-            if (!isValid)
-                Console.WriteLine("You are a big dummy. That's not a number");
-            else
-                break;
-        } while (true);
+        Console.WriteLine("Please enter the speed of the car");
+        int carSpeed = int.Parse(Console.ReadLine());
 
-        do {
-            Console.WriteLine("Please enter the height of the image.");
-            isValid = int.TryParse(Console.ReadLine(), out height);
-            if (!isValid)
-                Console.WriteLine("You are a big dummy. That's not a number");
-            else
-                break;
-        } while (true);
-
-        if (width > height)
-            Console.WriteLine("Landscape");
+        if (carSpeed <= speedLimit)
+            Console.WriteLine("OK");
         else
-            Console.WriteLine("Portrait");
+        {
+            int demerit = (carSpeed - speedLimit) / 5;
+            Console.WriteLine(demerit);
+
+            if (demerit > 12)
+                Console.WriteLine("License Suspended!!");
+        }
+
+
     }
 }
